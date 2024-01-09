@@ -1016,6 +1016,14 @@ int main(int argc, char* argv[]) {
 		/* delete object */
 		delete ohb;
 	}
-	infile.close();
+
+	try {
+		infile.close();
+	}
+	catch (const std::exception& ex) {
+		std::cerr << "[Error] Exited with exception: " << ex.what() << std::endl;
+		return 1;
+	}
+
 	return 0;
 }
